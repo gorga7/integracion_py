@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Todos</title>
+
+    <link href="{{url_for('static', filename='styles.css/tailwind.css')}}" rel="stylesheet">
+    <!-- Agrega Tailwind CSS si es necesario -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Mi servidor con Flask, TailwindCSS y Python</h1>
+    <h2 class="text-2xl font-bold mb-4">Lista de Todos</h2>
+    <button id="api1" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ir a api 1</button>
+
+    <!-- Mostrar datos en una tabla -->
+    {% if data and not data.error %}
+    <table class="min-w-full bg-white border border-gray-300">
+        <thead>
+        <tr class="w-full bg-gray-100 border-b">
+            <th class="py-2 px-4 text-left">ID</th>
+            <th class="py-2 px-4 text-left">User ID</th>
+            <th class="py-2 px-4 text-left">Title</th>
+            <th class="py-2 px-4 text-left">Completed</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in data %}
+        <tr>
+            <td class="py-2 px-4 border-b">{{ item.id }}</td>
+            <td class="py-2 px-4 border-b">{{ item.userId }}</td>
+            <td class="py-2 px-4 border-b">{{ item.title }}</td>
+            <td class="py-2 px-4 border-b">{{ item.completed }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No se pudieron obtener los datos.</p>
+    {% endif %}
+</div>
+</body>
+
+<script>
+    // Selecciona el botón por su ID
+    document.getElementById('api1').onclick = function () {
+        window.location.href = 'api1.html';
+    };
+</script>
+</html>

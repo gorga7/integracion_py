@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Asegúrate de incluir Tailwind CSS u otros estilos -->
+   <link href="{{url_for('static', filename='styles.css/tailwind.css')}}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="max-w-md w-full bg-white p-6 rounded-lg shadow-md">
+        <!-- Mostrar mensajes de la sesión -->
+        {% if success_message %}
+            <p class="text-green-500 mb-4">{{ success_message }}</p>
+        {% elif error_message %}
+            <p class="text-red-500 mb-4">{{ error_message }}</p>
+        {% endif %}
+
+        <!-- Formulario de Login -->
+        <form action="/login" method="post" class="mb-4">
+            <div class="mb-4">
+                <label for="Login" class="block text-gray-700">Login:</label>
+                <input type="text" id="Login" name="Login" class="w-full border rounded px-3 py-2" required>
+            </div>
+            <div class="mb-4">
+                <label for="Contrasenia" class="block text-gray-700">Contraseña:</label>
+                <input type="password" id="Contrasenia" name="Contrasenia" class="w-full border rounded px-3 py-2" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded">Login</button>
+        </form>
+
+        <!-- Formulario de Logout -->
+        <form action="/logout" method="post">
+            <button type="submit" id="LogOut" class="bg-red-500 text-white py-2 px-4 rounded">Logout</button>
+        </form>
+    </div>
+</body>
+</html>

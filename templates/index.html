@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos de API</title>
+    <!-- Agrega Tailwind CSS si es necesario -->
+    <link href="{{url_for('static', filename='styles.css/tailwind.css')}}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mx-auto p-4">
+
+    <form action="/logout" method="POST">
+        <button id="logout" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">LogOut</button>
+    </form>
+
+
+    <h1 class="text-2xl font-bold mb-4">Mi servidor con Flask, TailwindCSS y Python</h1>
+
+       <button id="api1" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ir a api 1</button>
+    <button id="api2" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ir a api 2</button>
+
+</div>
+
+</body>
+
+<script>
+    // Selecciona el botón por su ID
+    document.getElementById('api2').onclick = function () {
+        // Redirige a 'pagina2.html'
+        window.location.href = 'api2.html';
+    };
+
+     document.getElementById('api1').onclick = function () {
+        // Redirige a 'pagina1.html'
+        window.location.href = 'api1.html';
+    };
+</script>
+</html>
